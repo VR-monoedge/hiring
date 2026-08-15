@@ -3,6 +3,7 @@ import { ROLES, ROLE_SLUGS } from '../roles';
 import { Signal } from './Signal';
 import { Wordmark } from './Wordmark';
 import { useReveal, useSmoothScroll } from '../lib/hooks';
+import { roleCountWord } from '../lib/count';
 
 function RoleRow({ slug }: { slug: (typeof ROLE_SLUGS)[number] }) {
   const role = ROLES[slug];
@@ -42,6 +43,9 @@ export function CareersPage() {
     document.title = 'Careers · MonoEdge';
   }, []);
 
+  const count = roleCountWord();
+  const countTitle = count.charAt(0).toUpperCase() + count.slice(1);
+
   return (
     <>
       <header className="relative overflow-hidden border-b rule">
@@ -57,12 +61,13 @@ export function CareersPage() {
           <div className="mt-20 lg:mt-28">
             <p className="t-label">Careers</p>
             <h1 className="t-display mt-5 max-w-3xl text-[clamp(2rem,5.4vw,3.75rem)]">
-              Three senior roles. One plant floor at a time.
+              {countTitle} roles. One plant floor at a time.
             </h1>
             <p className="mt-6 max-w-2xl text-[1.0625rem] leading-relaxed text-[color:var(--color-muted)]">
               MonoEdge builds an intelligence layer for Indian mid-market manufacturing — software that
               behaves like an always-on analyst rather than another dashboard to manage. We are
-              bootstrapped, small, and hiring senior individual contributors who report to the Founder.
+              bootstrapped, small, and hiring across engineering, product, and design — from graduate
+              engineers to senior individual contributors, all working directly with the Founder.
             </p>
           </div>
         </div>
@@ -73,7 +78,7 @@ export function CareersPage() {
           <aside className="lg:sticky lg:top-10 lg:self-start">
             <p className="t-label">Open roles</p>
             <p className="t-readout mt-3 text-[color:var(--color-muted)]">
-              All three are Pune-based, full-time, with travel to partner plants across India.
+              All {count} are Pune-based, full-time, with travel to partner plants across India.
             </p>
           </aside>
 

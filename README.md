@@ -4,16 +4,25 @@ A careers index listing the open roles, plus one application page per role. Each
 role page carries its own job description, screening questions, and written
 question, and works as a standalone link you can send to one candidate.
 
+The site is served at **https://careers.monoedge.in/** (custom domain set via
+`public/CNAME`; GitHub Pages otherwise serves it at
+`https://rubanzer.github.io/monoedge-careers/`).
+
 | Page | URL |
 | --- | --- |
-| Careers index | `/hiring/` |
-| Senior Computer Vision Engineer | `/hiring/computer-vision-engineer-7f3ac1/` |
-| Senior Data Scientist | `/hiring/data-scientist-4b9e26/` |
-| Graphic Designer & Video Editor | `/hiring/graphic-designer-d8c105/` |
+| Careers index | `https://careers.monoedge.in/` |
+| Senior Computer Vision Engineer | `https://careers.monoedge.in/computer-vision-engineer-7f3ac1/` |
+| Senior Data Scientist | `https://careers.monoedge.in/data-scientist-4b9e26/` |
+| Graphic Designer & Video Editor | `https://careers.monoedge.in/graphic-designer-d8c105/` |
+| Graduate Engineer — Business Brain | `https://careers.monoedge.in/business-brain-associate-5c1a7e/` |
+| Front End Engineer — UI / UX | `https://careers.monoedge.in/frontend-engineer-a7f3d2/` |
+| Data Engineer | `https://careers.monoedge.in/data-engineer-b4e8c1/` |
+| Product Owner — Signal Analytics | `https://careers.monoedge.in/product-owner-signal-analytics-2d9f4a/` |
+| Product Owner — Business Brain | `https://careers.monoedge.in/product-owner-business-brain-7b3e6c/` |
 
 Slugs keep their random suffix from when the pages were unlisted. It no longer
-buys anything now that the index links to all three, but the URLs are published,
-so changing them would break links already sent.
+buys anything now that the index links to all of them, but the URLs are
+published, so changing them would break links already sent.
 
 ## Running it
 
@@ -44,9 +53,11 @@ and writes the CV to Drive.
 and redeploy without rebuilding.
 
 Each role writes to its own tab, mapped in `ROLE_SHEETS` at the top of the script:
-CV Engineer → `Sheet1`, Data Scientist → `Sheet2`, Designer → `Sheet3`. Headers are
-written the first time a tab is used, and missing tabs are created. CVs go to a
-`MonoEdge Applications/<role>/` folder in Drive, and the Sheet stores a link.
+CV Engineer → `Sheet1`, Data Scientist → `Sheet2`, Designer → `Sheet3`, Business
+Brain graduate → `Sheet4`, Front End Engineer → `Sheet5`, Data Engineer →
+`Sheet6`, PO Signal Analytics → `Sheet7`, PO Business Brain → `Sheet8`. Headers
+are written the first time a tab is used, and missing tabs are created. CVs go to
+a `MonoEdge Applications/<role>/` folder in Drive, and the Sheet stores a link.
 
 **After editing `Code.gs`, redeploy as a new version** — Manage deployments →
 edit → Version: New version. Otherwise the live URL keeps serving the old code.
